@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6dd5ca9ae14b2e44baf01952484649cf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Pan: {fileID: 919132149155446097, guid: 3438b02b067266a4c85571ac8fad7d62, type: 3}
+  - Minigun: {fileID: 919132149155446097, guid: 8d38f93bd2c30d6478cd689b7603984f,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
