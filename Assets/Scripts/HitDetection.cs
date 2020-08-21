@@ -69,11 +69,10 @@ public class HitDetection : MonoBehaviour
 
                 if (Physics.Raycast(Origin, Rotation, out Hit, 500f))
                 {
-                    Parent = Hit.transform;
                     BulletStart.LookAt(Hit.point);
                     GameObject BulletSpawn = Instantiate(Bullet, BulletStart.position, BulletStart.rotation);
                     GameObject impactGO = Instantiate(Impact, Hit.point, Quaternion.LookRotation(Hit.normal));
-                    GameObject BullHol = Instantiate(BulletHole, Hit.point, Quaternion.LookRotation(Hit.normal), Parent);
+                    GameObject BullHol = Instantiate(BulletHole, Hit.point, Quaternion.LookRotation(Hit.normal));
                     Destroy(BulletSpawn, 1f);
                     Destroy(impactGO, 1f);
                     Destroy(BullHol, 10f);
