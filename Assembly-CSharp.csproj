@@ -68,10 +68,12 @@
     <Compile Include="Assets\Managers\Karen.cs" />
     <Compile Include="Assets\Managers\MouseManager.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\CameraMovementNonRB.cs" />
     <Compile Include="Assets\Scripts\CollisionDetector.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\HitDetection.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovementNonRB.cs" />
     <Compile Include="Assets\Scripts\WaypointAttributes.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
