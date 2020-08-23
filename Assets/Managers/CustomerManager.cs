@@ -9,8 +9,8 @@ public class CustomerManager : MonoBehaviour
 
     public Vector2Int CustomerSpawnMinMax;
 
-    List<GameObject> Customers;
-    List<GameObject> Waypoints;
+    List<GameObject> Customers = new List<GameObject>();
+    List<GameObject> Waypoints = new List<GameObject>();
 
     // Start is called before the first frame update
 
@@ -29,15 +29,7 @@ public class CustomerManager : MonoBehaviour
 
         foreach (Transform child in WaypointsParent)
         {
-            try
-            {
-                Waypoints.Add(child.gameObject);
-            }
-            catch
-            {
-                Debug.Log("ç%*%ç&%!£&ç*");
-            }
-            
+            Waypoints.Add(child.gameObject);   
         }
 
         foreach (Transform child in transform)
@@ -50,11 +42,11 @@ public class CustomerManager : MonoBehaviour
     // Update is called once per frame
     public void AskForDestination(GameObject Controler)
     {
-        //GameObject target = Waypoints[Random.Range(0, Waypoints.Count - 1)];
-        /*if (!target.GetComponent<WaypointAttributes>().isOccupied)
+        GameObject target = Waypoints[Random.Range(0, Waypoints.Count)];
+        if (!target.GetComponent<WaypointAttributes>().isOccupied)
         {
             target.GetComponent<WaypointAttributes>().isOccupied = true;
             Controler.GetComponent<CustomerControler>().TargetChange(target);
-        }*/
+        }
     }
 }
