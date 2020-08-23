@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
+    public GameObject CustomerManagerGO;
     public Transform Camera;
     public Transform BulletStart;
     public Transform Minigun;
@@ -12,18 +13,22 @@ public class HitDetection : MonoBehaviour
     public GameObject BulletHole;
     public GameObject Bullet;
     public ParticleSystem Muzzle;
+    public float PanDamage = 5f;
+    public float MinigunDamage = 10f;
     public float Inaccuracy = 0.2f;
     public float FireDelay = 10f;
+    public float PushbackForce = 10f;
 
-    Transform Parent;
     float time;
     Vector3 Origin;
     Vector3 Rotation;
     Quaternion MinigunIdleRot;
 
+    CustomerManager customerManager;
     private void Start()
     {
         MinigunIdleRot = Minigun.rotation;
+        customerManager = CustomerManagerGO.GetComponent<CustomerManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +41,12 @@ public class HitDetection : MonoBehaviour
             Rotation = Camera.TransformDirection(Vector3.forward);
             if (Physics.Raycast(Origin, Rotation, out Hit, 5f))
             {
+                NPCHealth Health = Hit.transform.GetComponent<NPCHealth>();
+                if (Health != null)
+                {
+                    Health.Damage(PanDamage);
+                }
+
                 GameObject impactGO = Instantiate(Impact, Hit.point, Quaternion.LookRotation(Hit.normal));
                 GameObject BullHol = Instantiate(BulletHole, Hit.point, Quaternion.LookRotation(Hit.normal));
                 Destroy(impactGO, 1f);
@@ -61,6 +72,7 @@ public class HitDetection : MonoBehaviour
         {
             if (time > FireDelay)
             {
+                customerManager.Panic(transform.position);
                 time = 0;
                 Origin = Camera.position;
                 Rotation = Camera.TransformDirection(Vector3.forward) + new Vector3(Random.Range(Inaccuracy, -Inaccuracy), Random.Range(Inaccuracy, -Inaccuracy), Random.Range(Inaccuracy, -Inaccuracy));
@@ -69,6 +81,13 @@ public class HitDetection : MonoBehaviour
 
                 if (Physics.Raycast(Origin, Rotation, out Hit, 500f))
                 {
+                    NPCHealth Health = Hit.transform.GetComponent<NPCHealth>();
+                    Rigidbody RigidBody = Hit.transform.GetComponent<Rigidbody>();
+                    if (Health != null)
+                    {
+                        Health.Damage(MinigunDamage);
+                        RigidBody.AddForce(-Hit.normal * PushbackForce);
+                    }
                     BulletStart.LookAt(Hit.point);
                     GameObject BulletSpawn = Instantiate(Bullet, BulletStart.position, BulletStart.rotation);
                     GameObject impactGO = Instantiate(Impact, Hit.point, Quaternion.LookRotation(Hit.normal));

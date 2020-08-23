@@ -404,6 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587471057}
   - component: {fileID: 587471056}
+  - component: {fileID: 587471058}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -437,6 +438,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &587471058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587471055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad0e5b683178244ba440f1f6b6ce10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 2068196116}
 --- !u!1 &649860485
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b65a3c1a752774e9bf8a65ea68f51a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CustomerManagerGO: {fileID: 1062914492}
   Camera: {fileID: 963194228}
   BulletStart: {fileID: 1241029904}
   Minigun: {fileID: 1009510679}
@@ -927,8 +942,11 @@ MonoBehaviour:
     type: 3}
   Bullet: {fileID: 1703693907791801737, guid: b46627e852f39fa489da97ed111691a1, type: 3}
   Muzzle: {fileID: 2012518749}
+  PanDamage: 5
+  MinigunDamage: 100
   Inaccuracy: 0.08
   FireDelay: 0.001
+  PushbackForce: 30
 --- !u!4 &1008100576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
@@ -990,7 +1008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062914492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.88, y: 3.37, z: 1.6716489}
+  m_LocalPosition: {x: 100.4, y: -1.03, z: 1.6716489}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1011,7 +1029,7 @@ MonoBehaviour:
   WaypointsParent: {fileID: 549653821}
   Customer: {fileID: 8330280696730247905, guid: 786735778b1b2ef4099f2c92b1748ccf,
     type: 3}
-  CustomerSpawnMinMax: {x: 0, y: 9999}
+  CustomerSpawnMinMax: {x: 0, y: 500}
 --- !u!1 &1066558283
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,12 +68,14 @@
     <Compile Include="Assets\Managers\GameManager.cs" />
     <Compile Include="Assets\Managers\Karen.cs" />
     <Compile Include="Assets\Managers\MouseManager.cs" />
+    <Compile Include="Assets\Managers\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\CameraMovementNonRB.cs" />
     <Compile Include="Assets\Scripts\CollisionDetector.cs" />
     <Compile Include="Assets\Scripts\CustomerControler.cs" />
     <Compile Include="Assets\Scripts\ForeachTest.cs" />
     <Compile Include="Assets\Scripts\HitDetection.cs" />
+    <Compile Include="Assets\Scripts\NPCHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementNonRB.cs" />
     <Compile Include="Assets\Scripts\WaypointAttributes.cs" />

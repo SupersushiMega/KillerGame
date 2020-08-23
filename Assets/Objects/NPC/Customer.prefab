@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 8330280696730247909}
   - component: {fileID: 8330280696730247906}
   - component: {fileID: 8330280696730247907}
+  - component: {fileID: 1041645269878366311}
   - component: {fileID: 8330280696730247904}
+  - component: {fileID: 8231761216886628097}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -118,6 +120,22 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &1041645269878366311
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330280696730247905}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &8330280696730247904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,5 +148,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0c6779a1d237c48990fb9a4bd71450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: {fileID: 8231761216886628097}
+  StandardSpeed: 6
+  PanicSpeed: 20
+  StandardAcceleration: 8
+  PanicAcceleration: 24
   lookRadius: 10
-  MinMaxTargetChangeDelay: {x: 2, y: 5}
+--- !u!114 &8231761216886628097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330280696730247905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493726c9195e5de42bd48079725fad4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RigidBody: {fileID: 1041645269878366311}
+  agent: {fileID: 8330280696730247907}
+  MaxHealth: 100
+  Health: 0

@@ -29,13 +29,21 @@ public class CustomerManager : MonoBehaviour
 
         foreach (Transform child in WaypointsParent)
         {
-            Waypoints.Add(child.gameObject);   
+            Waypoints.Add(child.gameObject);
         }
 
         foreach (Transform child in transform)
         {
             Debug.Log("hello2");
             Customers.Add(child.gameObject);
+        }
+    }
+
+    public void Panic(Vector3 Position)
+    {
+        foreach (GameObject Customer in Customers)
+        {
+            Customer.GetComponent<CustomerControler>().Panic(Position);
         }
     }
 
