@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 60
+  controlID: 86
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 61
+  controlID: 87
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 55.04547, y: 20.75476, z: -21.736008}
+    m_Target: {x: 21.016176, y: 17.537243, z: -18.748692}
     speed: 2
-    m_Value: {x: 55.04547, y: 20.75476, z: -21.736008}
+    m_Value: {x: 21.016176, y: 17.537243, z: -18.748692}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -533,13 +533,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.109267995, y: -0.49156857, z: 0.062733114, w: -0.8618563}
+    m_Target: {x: 0.31586125, y: 0.00017717663, z: -0.0003914306, w: 0.94897294}
     speed: 2
-    m_Value: {x: -0.109251015, y: -0.49149215, z: 0.06272336, w: -0.86172235}
+    m_Value: {x: 0.31581104, y: 0.00017714845, z: -0.00039136838, w: 0.9488221}
   m_Size:
-    m_Target: 2.2471027
+    m_Target: 17.325678
     speed: 2
-    m_Value: 2.2471027
+    m_Value: 17.325678
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -710,19 +710,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Objects/NPC
+    - Assets/Particles
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Objects/NPC
+  - Assets/Particles
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\GameTest\KillerGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 56350000
-    m_LastClickedID: 13654
+    m_SelectedIDs: 4c350000
+    m_LastClickedID: 13644
     m_ExpandedIDs: 000000002c3500002e350000303500004a35000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewResizer:
-    m_CachedPref: 308
+    m_CachedPref: 326
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}

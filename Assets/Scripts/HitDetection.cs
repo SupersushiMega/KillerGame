@@ -10,6 +10,7 @@ public class HitDetection : MonoBehaviour
     public Transform BulletStart;
     public Transform Minigun;
     public GameObject Impact;
+    public GameObject Blood;
     public GameObject BulletHole;
     public GameObject Bullet;
     public ParticleSystem Muzzle;
@@ -45,12 +46,17 @@ public class HitDetection : MonoBehaviour
                 if (Health != null)
                 {
                     Health.Damage(PanDamage);
+                    Rigidbody RigidBody = Hit.transform.GetComponent<Rigidbody>();
+                    GameObject impactGO = Instantiate(Blood, Hit.point, Quaternion.LookRotation(Hit.normal));
+                    Destroy(impactGO, 1f);
                 }
-
-                GameObject impactGO = Instantiate(Impact, Hit.point, Quaternion.LookRotation(Hit.normal));
-                GameObject BullHol = Instantiate(BulletHole, Hit.point, Quaternion.LookRotation(Hit.normal));
-                Destroy(impactGO, 1f);
-                Destroy(BullHol, 10f);
+                else
+                {
+                    GameObject impactGO = Instantiate(Impact, Hit.point, Quaternion.LookRotation(Hit.normal));
+                    GameObject BullHol = Instantiate(BulletHole, Hit.point, Quaternion.LookRotation(Hit.normal));
+                    Destroy(impactGO, 1f);
+                    Destroy(BullHol, 10f);
+                }
             }
         }
 
@@ -87,14 +93,19 @@ public class HitDetection : MonoBehaviour
                     {
                         Health.Damage(MinigunDamage);
                         RigidBody.AddForce(-Hit.normal * PushbackForce);
+                        GameObject impactGO = Instantiate(Blood, Hit.point, Quaternion.LookRotation(Hit.normal));
+                        Destroy(impactGO, 1f);
+                    }
+                    else
+                    {
+                        GameObject impactGO = Instantiate(Impact, Hit.point, Quaternion.LookRotation(Hit.normal));
+                        GameObject BullHol = Instantiate(BulletHole, Hit.point, Quaternion.LookRotation(Hit.normal));
+                        Destroy(impactGO, 1f);
+                        Destroy(BullHol, 10f);
                     }
                     BulletStart.LookAt(Hit.point);
                     GameObject BulletSpawn = Instantiate(Bullet, BulletStart.position, BulletStart.rotation);
-                    GameObject impactGO = Instantiate(Impact, Hit.point, Quaternion.LookRotation(Hit.normal));
-                    GameObject BullHol = Instantiate(BulletHole, Hit.point, Quaternion.LookRotation(Hit.normal));
                     Destroy(BulletSpawn, 1f);
-                    Destroy(impactGO, 1f);
-                    Destroy(BullHol, 10f);
                 }
             }
             else

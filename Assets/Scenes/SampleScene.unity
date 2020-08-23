@@ -938,6 +938,7 @@ MonoBehaviour:
   BulletStart: {fileID: 1241029904}
   Minigun: {fileID: 1009510679}
   Impact: {fileID: 4566098388085837396, guid: afaed744fcc8b16458991c85c2569062, type: 3}
+  Blood: {fileID: 6649972084144964288, guid: 725c9fe87199aef419448be4f8e25b74, type: 3}
   BulletHole: {fileID: 8417596299373301924, guid: 9aeaf0eff1f87d1478790b358a85b982,
     type: 3}
   Bullet: {fileID: 1703693907791801737, guid: b46627e852f39fa489da97ed111691a1, type: 3}
