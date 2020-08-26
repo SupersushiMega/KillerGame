@@ -48,18 +48,11 @@ public class CustomerControler : MonoBehaviour
             {
                 agent.speed = StandardSpeed;
                 agent.acceleration = StandardAcceleration;
-                if (!agent.pathPending && (agent.remainingDistance <= agent.stoppingDistance) || panic < 0)
-                {
-                    panic = 0;
-                    if (Target != null)
-                    {
-                        Target.GetComponent<WaypointAttributes>().isOccupied = false;
-                    }
-                    Manager.AskForDestination(gameObject);
-                }
+                
             }
         }
     }
+
     public void Panic(Vector3 Position)
     {
         float distance = Vector3.Distance(Position, transform.position);

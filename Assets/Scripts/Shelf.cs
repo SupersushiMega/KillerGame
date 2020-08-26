@@ -5,41 +5,53 @@ using UnityEngine;
 public class Shelf : MonoBehaviour
 {
     List<GameObject> Cupcakes = new List<GameObject>();
-    public float Space = 20;
+    public Transform shelf;
+    public float Space = 20f;
     [Range(0f, 20f)]
-    public int ItemCount = 0;
+    public float ItemCount = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in shelf)
         {
-            Cupcakes.Add(child.gameObject);
+            if (child.transform.tag == "Untagged")
+            {
+                Cupcakes.Add(child.gameObject);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        short i;
+        short i = 1;
         if (ItemCount != 0)
         {
-            for (i = 0; i <= (ItemCount / Space) * Cupcakes.Count; i++)
+            for (i = 1; i <= (ItemCount / Space) * Cupcakes.Count; i++)
             {
-                Cupcakes[i].SetActive(true);
+                Cupcakes[i - 1].SetActive(true);
             }
         }
 
         else
         {
-            i = 0;
+            i = 1;
         }
 
 #pragma warning disable CS1717 // Die Zuweisung wurde für dieselbe Variable durchgeführt.
         for (i = i; i <= Cupcakes.Count; i++)
 #pragma warning restore CS1717 // Die Zuweisung wurde für dieselbe Variable durchgeführt.
         {
-            Cupcakes[i].SetActive(false);
+            Cupcakes[i - 1].SetActive(false);
+        }
+    }
+
+    void TakeCupcake()
+    {
+        if (ItemCount > 1)
+        {
+            ItemCount--;
         }
     }
 }

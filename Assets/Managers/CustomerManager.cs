@@ -29,7 +29,13 @@ public class CustomerManager : MonoBehaviour
 
         foreach (Transform child in WaypointsParent)
         {
-            Waypoints.Add(child.gameObject);
+            foreach (Transform child2 in child)
+            {
+                if (child2.tag == "Target")
+                {
+                    Waypoints.Add(child2.gameObject);
+                }
+            }
         }
 
         foreach (Transform child in transform)
