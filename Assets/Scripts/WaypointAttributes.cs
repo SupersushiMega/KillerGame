@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WaypointAttributes : MonoBehaviour
 {
-    public bool isOccupied;
+
+    public Shelf shelf;
+    public bool isOccupied = false;
 
     void ChangeStatus(bool Status)
     {
@@ -15,5 +17,14 @@ public class WaypointAttributes : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, transform.localScale);
+    }
+
+   private void OnTriggerEnter(Collider other)
+    {
+        CustomerControler Enter = other.gameObject.GetComponent<CustomerControler>();
+        if (Enter != null)
+        {
+            shelf.TakeCupcake();
+        }
     }
 }

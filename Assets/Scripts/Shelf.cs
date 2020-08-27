@@ -47,7 +47,7 @@ public class Shelf : MonoBehaviour
         }
     }
 
-    void TakeCupcake()
+    public void TakeCupcake()
     {
         if (ItemCount > 1)
         {

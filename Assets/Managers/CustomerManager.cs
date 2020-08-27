@@ -34,6 +34,7 @@ public class CustomerManager : MonoBehaviour
                 if (child2.tag == "Target")
                 {
                     Waypoints.Add(child2.gameObject);
+                    Debug.Log("hello");
                 }
             }
         }

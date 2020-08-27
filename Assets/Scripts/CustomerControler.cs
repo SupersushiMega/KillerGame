@@ -30,6 +30,7 @@ public class CustomerControler : MonoBehaviour
         Spawn = transform.position;
         Manager = transform.parent.GetComponent<CustomerManager>();
         agent = GetComponent<NavMeshAgent>();
+        Manager.AskForDestination(gameObject);
     }
 
     // Update is called once per frame
@@ -48,7 +49,6 @@ public class CustomerControler : MonoBehaviour
             {
                 agent.speed = StandardSpeed;
                 agent.acceleration = StandardAcceleration;
-                
             }
         }
     }
@@ -58,7 +58,6 @@ public class CustomerControler : MonoBehaviour
         float distance = Vector3.Distance(Position, transform.position);
         if (distance <= lookRadius)
         {
-            Target.GetComponent<WaypointAttributes>().isOccupied = false;
             panic = 100;
             agent.SetDestination(transform.parent.position);
         }
