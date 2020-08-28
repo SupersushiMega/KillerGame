@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class WaypointAttributes : MonoBehaviour
 {
+    public GameObject moneyParticle;
 
     public Shelf shelf;
     public bool isOccupied = false;
-
-    void ChangeStatus(bool Status)
-    {
-        isOccupied = Status;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, transform.localScale);
-    }
 
    private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +15,19 @@ public class WaypointAttributes : MonoBehaviour
         if (Enter != null)
         {
             shelf.TakeCupcake();
+            GameObject Mp = Instantiate(moneyParticle, other.transform);
+            Destroy(Mp, 10f);
+            Enter.GoHome();
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        isOccupied = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isOccupied = false;
     }
 }

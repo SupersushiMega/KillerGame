@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &2457034950214435808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599472368494433478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: -0.00000023841858, y: -0.00000047683716, z: 0.00000047683716}
 --- !u!114 &7338597337859415450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,6 +867,12 @@ PrefabInstance:
       propertyPath: shelf
       value: 
       objectReference: {fileID: 7338597337859415450}
+    - target: {fileID: 3490648008110730199, guid: 56d5f4855c42d6942b8503e7aac5bba9,
+        type: 3}
+      propertyPath: moneyParticle
+      value: 
+      objectReference: {fileID: 1462651217995759256, guid: 9cbc9c56280ddc5449bd9150ca6fc063,
+        type: 3}
     - target: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -862,12 +881,12 @@ PrefabInstance:
     - target: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.77
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
@@ -912,29 +931,29 @@ PrefabInstance:
     - target: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6238909
+      value: 9.1474085
       objectReference: {fileID: 0}
     - target: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.1243277
+      value: 12.403915
       objectReference: {fileID: 0}
     - target: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.6055994
+      value: 15.1270685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d5f4855c42d6942b8503e7aac5bba9, type: 3}
---- !u!4 &1599472368494433533 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2757102902613163798}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1599472368494433478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3490648008110730192, guid: 56d5f4855c42d6942b8503e7aac5bba9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2757102902613163798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1599472368494433533 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3490648008110730219, guid: 56d5f4855c42d6942b8503e7aac5bba9,
     type: 3}
   m_PrefabInstance: {fileID: 2757102902613163798}
   m_PrefabAsset: {fileID: 0}

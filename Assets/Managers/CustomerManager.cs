@@ -14,18 +14,9 @@ public class CustomerManager : MonoBehaviour
 
     // Start is called before the first frame update
 
-    private void Awake()
-    {
-    }
-
     void Start()
     {
-        int Customercount = Random.Range(CustomerSpawnMinMax.x, CustomerSpawnMinMax.y);
-        int i;
-        for (i = 0; i <= Customercount; i++)
-        {
-            Instantiate(Customer, transform);
-        }
+        SpawnCustomers();
 
         foreach (Transform child in WaypointsParent)
         {
@@ -34,15 +25,16 @@ public class CustomerManager : MonoBehaviour
                 if (child2.tag == "Target")
                 {
                     Waypoints.Add(child2.gameObject);
-                    Debug.Log("hello");
                 }
             }
         }
+    }
 
-        foreach (Transform child in transform)
+    public void Update()
+    {
+        if (Customers.Count == 0)
         {
-            Debug.Log("hello2");
-            Customers.Add(child.gameObject);
+            SpawnCustomers();
         }
     }
 
@@ -58,10 +50,30 @@ public class CustomerManager : MonoBehaviour
     public void AskForDestination(GameObject Controler)
     {
         GameObject target = Waypoints[Random.Range(0, Waypoints.Count)];
-        if (!target.GetComponent<WaypointAttributes>().isOccupied)
+        if (!target.GetComponent<WaypointAttributes>().isOccupied == true || true)
         {
             target.GetComponent<WaypointAttributes>().isOccupied = true;
             Controler.GetComponent<CustomerControler>().TargetChange(target);
+        }
+    }
+    public void Destroy(GameObject customer)
+    {
+        Customers.Remove(customer);
+    }
+
+    public void SpawnCustomers()
+    {
+        Debug.Log("Spawn");
+        int Customercount = Random.Range(CustomerSpawnMinMax.x, CustomerSpawnMinMax.y);
+        int i;
+        for (i = 0; i <= Customercount; i++)
+        {
+            Instantiate(Customer, transform);
+        }
+        foreach (Transform child in transform)
+        {
+            Debug.Log("hello2");
+            Customers.Add(child.gameObject);
         }
     }
 }

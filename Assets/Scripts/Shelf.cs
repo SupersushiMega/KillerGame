@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shelf : MonoBehaviour
 {
     List<GameObject> Cupcakes = new List<GameObject>();
+
     public Transform shelf;
     public float Space = 20f;
     [Range(0f, 20f)]
@@ -25,7 +26,7 @@ public class Shelf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        short i = 1;
+        short i;
         if (ItemCount != 0)
         {
             for (i = 1; i <= (ItemCount / Space) * Cupcakes.Count; i++)
@@ -49,7 +50,7 @@ public class Shelf : MonoBehaviour
 
     public void TakeCupcake()
     {
-        if (ItemCount > 1)
+        if (ItemCount >= 1)
         {
             ItemCount--;
         }

@@ -15,9 +15,7 @@ public class CustomerControler : MonoBehaviour
 
     public float lookRadius = 10f;
 
-    GameObject Target;
-    Vector3 Spawn;
-
+    bool GoingHome = false;
     float panic;
 
     CustomerManager Manager;
@@ -27,7 +25,6 @@ public class CustomerControler : MonoBehaviour
     void Start()
     {
         panic = 0;
-        Spawn = transform.position;
         Manager = transform.parent.GetComponent<CustomerManager>();
         agent = GetComponent<NavMeshAgent>();
         Manager.AskForDestination(gameObject);
@@ -50,6 +47,15 @@ public class CustomerControler : MonoBehaviour
                 agent.speed = StandardSpeed;
                 agent.acceleration = StandardAcceleration;
             }
+
+            if (GoingHome)
+            {
+                if (agent.remainingDistance < agent.stoppingDistance)
+                {
+                    Manager.Destroy(gameObject);
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 
@@ -65,8 +71,13 @@ public class CustomerControler : MonoBehaviour
 
     public void TargetChange(GameObject target)
     {
-        Target = target;
         agent.SetDestination(target.transform.position);
+    }
+
+    public void GoHome()
+    {
+        agent.SetDestination(transform.parent.position);
+        GoingHome = true;
     }
 
     private void OnDrawGizmosSelected()
