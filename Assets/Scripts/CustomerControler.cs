@@ -57,6 +57,10 @@ public class CustomerControler : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            Manager.Destroy(gameObject);
+        }
     }
 
     public void Panic(Vector3 Position)

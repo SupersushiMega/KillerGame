@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NPCHealth : MonoBehaviour
 {
+    public GameObject NPC;
     public Rigidbody RigidBody;
     public NavMeshAgent agent;
 

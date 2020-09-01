@@ -1073,7 +1073,7 @@ MonoBehaviour:
   WaypointsParent: {fileID: 549653821}
   Customer: {fileID: 8330280696730247905, guid: 786735778b1b2ef4099f2c92b1748ccf,
     type: 3}
-  CustomerSpawnMinMax: {x: 0, y: 1000}
+  CustomerSpawnMinMax: {x: 0, y: 10}
 --- !u!1 &1066558283
 GameObject:
   m_ObjectHideFlags: 0

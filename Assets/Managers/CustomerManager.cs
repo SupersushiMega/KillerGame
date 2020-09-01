@@ -9,6 +9,8 @@ public class CustomerManager : MonoBehaviour
 
     public Vector2Int CustomerSpawnMinMax;
 
+    private int Amount;
+
     List<GameObject> Customers = new List<GameObject>();
     List<GameObject> Waypoints = new List<GameObject>();
 
@@ -16,7 +18,7 @@ public class CustomerManager : MonoBehaviour
 
     void Start()
     {
-        SpawnCustomers();
+        Amount = Random.Range(CustomerSpawnMinMax.x, CustomerSpawnMinMax.y);
 
         foreach (Transform child in WaypointsParent)
         {
@@ -32,9 +34,9 @@ public class CustomerManager : MonoBehaviour
 
     public void Update()
     {
-        if (Customers.Count == 0)
+        if (Customers.Count < Amount)
         {
-            SpawnCustomers();
+            SpawnCustomers(1);
         }
     }
 
@@ -61,19 +63,13 @@ public class CustomerManager : MonoBehaviour
         Customers.Remove(customer);
     }
 
-    public void SpawnCustomers()
+    public void SpawnCustomers(int Customercount)
     {
         Debug.Log("Spawn");
-        int Customercount = Random.Range(CustomerSpawnMinMax.x, CustomerSpawnMinMax.y);
         int i;
         for (i = 0; i <= Customercount; i++)
         {
-            Instantiate(Customer, transform);
-        }
-        foreach (Transform child in transform)
-        {
-            Debug.Log("hello2");
-            Customers.Add(child.gameObject);
+            Customers.Add(Instantiate(Customer, transform));
         }
     }
 }

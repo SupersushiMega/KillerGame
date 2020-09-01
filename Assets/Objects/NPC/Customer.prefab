@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493726c9195e5de42bd48079725fad4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPC: {fileID: 8330280696730247905}
   RigidBody: {fileID: 1041645269878366311}
   agent: {fileID: 8330280696730247907}
   MaxHealth: 100
