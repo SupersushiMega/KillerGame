@@ -76,8 +76,12 @@
     <Compile Include="Assets\Scripts\ForeachTest.cs" />
     <Compile Include="Assets\Scripts\HitDetection.cs" />
     <Compile Include="Assets\Scripts\NPCHealth.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\LocalNavMeshBuilder.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\NavMes.cs" />
+    <Compile Include="Assets\Scripts\NavMesh\NavMeshSourceTag.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementNonRB.cs" />
+    <Compile Include="Assets\Scripts\RoomDetection.cs" />
     <Compile Include="Assets\Scripts\Shelf.cs" />
     <Compile Include="Assets\Scripts\WaypointAttributes.cs" />
     <Reference Include="UnityEngine">
