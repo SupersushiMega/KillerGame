@@ -16,7 +16,7 @@ public class Shelf : MonoBehaviour
     {
         foreach (Transform child in shelf)
         {
-            if (child.transform.tag == "Untagged")
+            if (child.transform.CompareTag("Untagged"))
             {
                 Cupcakes.Add(child.gameObject);
             }

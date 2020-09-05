@@ -24,7 +24,7 @@ public class CustomerManager : MonoBehaviour
         {
             foreach (Transform child2 in child)
             {
-                if (child2.tag == "Target")
+                if (child2.CompareTag("Target"))
                 {
                     Waypoints.Add(child2.gameObject);
                 }

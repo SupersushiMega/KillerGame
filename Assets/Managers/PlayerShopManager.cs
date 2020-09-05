@@ -52,12 +52,25 @@ public class PlayerShopManager : MonoBehaviour
                 Debug.Log(X);
                 if (RoomMap[X, Y] == 1)
                 {
-                    Offset = new Vector3(RoomScale * (X - (SizeX / 2)), 0, RoomScale * (Y - (Y / 2)));
+                    Offset = new Vector3(RoomScale * (X - (SizeX / 2)), 0, RoomScale * Y);
                     Debug.Log((X / 2) - X);
                     if (Offset != new Vector3(0, 0, 0))
                     {
                         GameObject tmp = Instantiate(StandartRoom, ShopEntrance, false);
                         tmp.transform.localPosition = Offset;
+                        foreach (Transform a in tmp.transform)
+                        {
+                            foreach (Transform b in a)
+                            {
+                                foreach (Transform c in b)
+                                {
+                                    if (c.gameObject.GetComponent<RoomDetection>() != null)
+                                    {
+                                        c.gameObject.GetComponent<RoomDetection>().ListPos = new Vector2(X, Y);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
