@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wall: {fileID: 518659336296452874}
+  ListPos: {x: 0, y: 0}
 --- !u!1 &3787217294343491224
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wall: {fileID: 2228620911297781124}
+  ListPos: {x: 0, y: 0}
 --- !u!1 &5864901642136574001
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wall: {fileID: 1025737379908160615}
+  ListPos: {x: 0, y: 0}
 --- !u!1 &8237757580542188309
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class RoomDetection : MonoBehaviour
 {
     public GameObject Wall;
-    public Vector2 ListPos;
 
     private void OnTriggerEnter(Collider other)
     {

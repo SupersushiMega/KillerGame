@@ -70,6 +70,8 @@
     <Compile Include="Assets\Managers\MouseManager.cs" />
     <Compile Include="Assets\Managers\PlayerManager.cs" />
     <Compile Include="Assets\Managers\PlayerShopManager.cs" />
+    <Compile Include="Assets\Scripts\BuildButton.cs" />
+    <Compile Include="Assets\Scripts\BuildingUI.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\CameraMovementNonRB.cs" />
     <Compile Include="Assets\Scripts\CollisionDetector.cs" />
