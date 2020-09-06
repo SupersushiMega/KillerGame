@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BuildingUI : MonoBehaviour
 {
     public GameObject button;
     public PlayerShopManager PlayerShop;
+    List<GameObject> buttonList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -47,10 +49,28 @@ public class BuildingUI : MonoBehaviour
                 Vector3 Offset = new Vector3(scale * (X - (SizeX / 2)), scale * (Y - (SizeY / 2)), 0);
                 tmp = Instantiate(button, transform, false);
                 tmp.transform.localPosition = Offset;
+                buttonList.Add(tmp);
                 if (tmp.GetComponent<BuildButton>() != null)
                 {
-                    tmp.GetComponent<BuildButton>().setup(X, Y, scale / 32, 1);
+                    tmp.GetComponent<BuildButton>().setup(X, Y, scale / 32, 1, PlayerShop);
+                    if (PlayerShop.RoomMap[X, Y] != 255)
+                    {
+                        tmp.GetComponent<Button>().interactable = false;
+                    }
+                    tmp.GetComponent<BuildButton>().ui = this;
                 }
+            }
+        }
+        UpdateButtons();
+    }
+
+    public void UpdateButtons()
+    {
+        foreach (GameObject i in buttonList)
+        {
+            if (i.GetComponent<BuildButton>() != null)
+            {
+                i.GetComponent<BuildButton>().ButtonCheck();
             }
         }
     }

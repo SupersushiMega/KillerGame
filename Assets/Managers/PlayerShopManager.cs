@@ -15,7 +15,7 @@ public class PlayerShopManager : MonoBehaviour
 
     public float RoomScale = 16;
 
-    private byte[,] RoomMap;
+    public byte[,] RoomMap;
     private GameObject[,] InstanciatetRoomList;
     
 
@@ -31,7 +31,16 @@ public class PlayerShopManager : MonoBehaviour
 
             for (Y = 0; Y < SizeY; Y++)
             {
-                RoomMap[X, Y] = 0;
+                Vector3 Offset;
+                Offset = new Vector3(RoomScale * (X - (SizeX / 2)), 0, RoomScale * Y);
+                if (Offset != new Vector3(0, 0, 0) && InstanciatetRoomList[X, Y] == null)
+                {
+                    RoomMap[X, Y] = 0;
+                }
+                else
+                {
+                    RoomMap[X, Y] = 255;
+                }
             }
         }
         UpdateGrid();
@@ -44,7 +53,7 @@ public class PlayerShopManager : MonoBehaviour
         
     }
 
-    void UpdateGrid()
+    public void UpdateGrid()
     {
         Vector3 Offset;
         ushort X;
@@ -55,8 +64,9 @@ public class PlayerShopManager : MonoBehaviour
             {
                 if (RoomMap[X, Y] == 1)
                 {
+                    Debug.Log("Hello");
                     Offset = new Vector3(RoomScale * (X - (SizeX / 2)), 0, RoomScale * Y);
-                    if (Offset != new Vector3(0, 0, 0) && InstanciatetRoomList[X, Y] != null)
+                    if (Offset != new Vector3(0, 0, 0) && InstanciatetRoomList[X, Y] == null)
                     {
                         InstanciatetRoomList[X, Y] = Instantiate(StandartRoom, ShopEntrance, false);
                         InstanciatetRoomList[X, Y].transform.localPosition = Offset;

@@ -15,7 +15,7 @@ public class MouseManager : MonoBehaviour
 
         if (CursorLock == true)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            
         }
 
         else
