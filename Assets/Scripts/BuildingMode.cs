@@ -1,19 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
+
+[System.Serializable]
 public class Furniture
 {
+    public GameObject Model;
+    public float yOffset;
 
+    public Furniture()
+    {
+
+    }
 }
+
 
 public class BuildingMode : MonoBehaviour
 {
     public Transform PlayerCam;
-    public GameObject[] Shelf = new GameObject[2];
 
-    private GameObject shelf;
+    public Furniture[] furniture;
+
+    GameObject shelf;
     Vector3 PreviewPos;
     Vector3 Origin;
     Vector3 Rotation;
@@ -22,7 +33,7 @@ public class BuildingMode : MonoBehaviour
     void Start()
     {
         Origin = new Vector3(0, -100, 0);
-        shelf = Instantiate(Shelf[0], transform);
+        shelf = Instantiate(furniture[0].Model, transform);
         shelf.SetActive(false);
 
     }
@@ -39,14 +50,14 @@ public class BuildingMode : MonoBehaviour
             {
                 shelf.SetActive(true);
                 PreviewPos = Hit.point;
-                PreviewPos.y = shelf[1];
+               // PreviewPos.y = shelf[1];
                 shelf.transform.position = PreviewPos;
             }
-        }
 
-        else
-        {
-            shelf.SetActive(false);
+            else
+            {
+                shelf.SetActive(false);
+            }
         }
     }
 }

@@ -1223,7 +1223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCam: {fileID: 963194228}
-  Shelf: {fileID: 5281987025303936133, guid: 20ee6a257f50a734eaf4cb318175e8ca, type: 3}
+  furniture:
+  - Model: {fileID: 2409592068806995927, guid: dfcc672152de0664aa0a0d43fd3da7f1, type: 3}
+    yOffset: 0
 --- !u!4 &1053775844
 Transform:
   m_ObjectHideFlags: 0
