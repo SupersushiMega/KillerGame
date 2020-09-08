@@ -1202,6 +1202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1053775844}
   - component: {fileID: 1053775845}
+  - component: {fileID: 1053775843}
   m_Layer: 0
   m_Name: PlayerShopManager
   m_TagString: Untagged
@@ -1209,6 +1210,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1053775843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053775842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6bdd53084e0494f8005f555f2e3008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCam: {fileID: 963194228}
+  Shelf: {fileID: 5281987025303936133, guid: 20ee6a257f50a734eaf4cb318175e8ca, type: 3}
 --- !u!4 &1053775844
 Transform:
   m_ObjectHideFlags: 0
