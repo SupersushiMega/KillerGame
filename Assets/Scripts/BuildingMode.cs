@@ -28,6 +28,7 @@ public class BuildingMode : MonoBehaviour
     Vector3 PreviewPos;
     Vector3 Origin;
     Vector3 Rotation;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,6 @@ public class BuildingMode : MonoBehaviour
         Origin = new Vector3(0, -100, 0);
         shelf = Instantiate(furniture[0].Model, transform);
         shelf.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class BuildingMode : MonoBehaviour
             {
                 shelf.SetActive(true);
                 PreviewPos = Hit.point;
-               // PreviewPos.y = shelf[1];
+                PreviewPos.y = furniture[0].yOffset;
                 shelf.transform.position = PreviewPos;
             }
 

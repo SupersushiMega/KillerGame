@@ -1225,7 +1225,7 @@ MonoBehaviour:
   PlayerCam: {fileID: 963194228}
   furniture:
   - Model: {fileID: 2409592068806995927, guid: dfcc672152de0664aa0a0d43fd3da7f1, type: 3}
-    yOffset: 0
+    yOffset: 1.8
 --- !u!4 &1053775844
 Transform:
   m_ObjectHideFlags: 0
