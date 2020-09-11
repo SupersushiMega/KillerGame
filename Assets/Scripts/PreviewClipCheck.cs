@@ -7,6 +7,8 @@ public class PreviewClipCheck : MonoBehaviour
     Renderer render;
     public Color RED;
     public Color GREEN;
+
+    private bool CanBuild = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +20,15 @@ public class PreviewClipCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        CanBuild = false;
         render.material.SetColor("_TintColor", RED);
     }
 
     private void OnTriggerExit(Collider other)
     {
+        CanBuild = true;
         render.material.SetColor("_TintColor", GREEN);
     }
+
+    //void build();
 }

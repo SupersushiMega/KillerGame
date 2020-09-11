@@ -18,13 +18,16 @@ public class CameraMovementNonRB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * Sensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * Sensitivity * Time.deltaTime;
-        Rotx -= mouseY;
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * Sensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * Sensitivity * Time.deltaTime;
+            Rotx -= mouseY;
 
-        Rotx = Mathf.Clamp(Rotx, -90f, 90f);
+            Rotx = Mathf.Clamp(Rotx, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(Rotx, 0f, 0f);
-        Body.Rotate(Vector3.up * mouseX);
+            transform.localRotation = Quaternion.Euler(Rotx, 0f, 0f);
+            Body.Rotate(Vector3.up * mouseX);
+        }
     }
 }

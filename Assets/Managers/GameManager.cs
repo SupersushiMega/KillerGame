@@ -2,15 +2,23 @@
 
 public class GameManager : MonoBehaviour
 {
+    bool BuildMode = false;
     bool UIActive = false;
     byte CurrentUI = 0;
     public GameObject[] Ui;
+    public PlayerWeapons playerWeapons;
+    public CameraMovementNonRB CameraMovement;
     // Update is called once per frame
+
     void Update()
     {
-        if (Input.GetButtonDown("BuildMenu"))
+        if (Input.GetButtonDown("BuildMode"))
         {
-            Debug.Log("good");
+            BuildMode = true;
+        }
+
+        if (Input.GetButtonDown("UI Open"))
+        {
             CurrentUI = 0;
             if ((CurrentUI == 0) || (UIActive == false))
             {
@@ -19,6 +27,8 @@ public class GameManager : MonoBehaviour
         }
         if (UIActive == true)
         {
+            playerWeapons.PanActive = false;
+            playerWeapons.MinigunActive = false;
             Cursor.lockState = CursorLockMode.None;
             foreach (GameObject ui in Ui)
             {
@@ -26,6 +36,7 @@ public class GameManager : MonoBehaviour
                 {
                     ui.SetActive(true);
                 }
+
                 else
                 {
                     ui.SetActive(false);
@@ -35,10 +46,12 @@ public class GameManager : MonoBehaviour
 
         else
         {
+            playerWeapons.PanActive = true;
+            playerWeapons.MinigunActive = true;
+            Cursor.lockState = CursorLockMode.Locked;
             foreach (GameObject ui in Ui)
             {
                 ui.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }

@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
-
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class Furniture
 {
-    public GameObject Model;
+    public GameObject PreviewModel;
+    public GameObject PlaceModel;
     public float yOffset;
 
     public Furniture()
@@ -24,7 +25,12 @@ public class BuildingMode : MonoBehaviour
 
     public Furniture[] furniture;
 
-    GameObject shelf;
+    public byte CurrentSelection = 0;
+
+    List<GameObject> FurnitureInstances;
+
+    GameObject tmp;
+
     Vector3 PreviewPos;
     Vector3 Origin;
     Vector3 Rotation;
@@ -33,9 +39,14 @@ public class BuildingMode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FurnitureInstances = new List<GameObject>();
         Origin = new Vector3(0, -100, 0);
-        shelf = Instantiate(furniture[0].Model, transform);
-        shelf.SetActive(false);
+        foreach (Furniture i in furniture)
+        {
+            tmp = Instantiate(i.PreviewModel, transform);
+            FurnitureInstances.Add(tmp);
+            tmp.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -48,15 +59,20 @@ public class BuildingMode : MonoBehaviour
         {
             if (Hit.collider.gameObject.tag == "ShopFloor")
             {
-                shelf.SetActive(true);
+                FurnitureInstances[CurrentSelection].SetActive(true);
                 PreviewPos = Hit.point;
-                PreviewPos.y = furniture[0].yOffset;
-                shelf.transform.position = PreviewPos;
+                PreviewPos.y = furniture[CurrentSelection].yOffset;
+                FurnitureInstances[CurrentSelection].transform.position = PreviewPos;
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    tmp = Instantiate(furniture[CurrentSelection].PlaceModel);
+                    tmp.transform.position = PreviewPos;
+                }
             }
 
             else
             {
-                shelf.SetActive(false);
+                FurnitureInstances[CurrentSelection].SetActive(false);
             }
         }
     }
