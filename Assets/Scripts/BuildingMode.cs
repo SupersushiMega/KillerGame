@@ -22,6 +22,9 @@ public class Furniture
 public class BuildingMode : MonoBehaviour
 {
     public Transform PlayerCam;
+    public Transform WaypointParent;
+
+    public CustomerManager customerManager;
 
     public Furniture[] furniture;
 
@@ -29,8 +32,11 @@ public class BuildingMode : MonoBehaviour
 
     List<GameObject> FurnitureInstances;
 
+    public UInt16 MouseWheelSensitivity = 1000;
+
     GameObject tmp;
 
+    Vector3 PreviewRot;
     Vector3 PreviewPos;
     Vector3 Origin;
     Vector3 Rotation;
@@ -40,7 +46,8 @@ public class BuildingMode : MonoBehaviour
     void Start()
     {
         FurnitureInstances = new List<GameObject>();
-        Origin = new Vector3(0, -100, 0);
+        Origin = new Vector3(0f, -100f, 0f);
+        PreviewRot = new Vector3(-90, 0, 0);
         foreach (Furniture i in furniture)
         {
             tmp = Instantiate(i.PreviewModel, transform);
@@ -55,6 +62,7 @@ public class BuildingMode : MonoBehaviour
         RaycastHit Hit;
         Origin = PlayerCam.position;
         Rotation = PlayerCam.TransformDirection(Vector3.forward);
+        PreviewRot.z += Input.mouseScrollDelta.y * MouseWheelSensitivity * Time.deltaTime;
         if (Physics.Raycast(Origin, Rotation, out Hit, 50f))
         {
             if (Hit.collider.gameObject.tag == "ShopFloor")
@@ -63,10 +71,14 @@ public class BuildingMode : MonoBehaviour
                 PreviewPos = Hit.point;
                 PreviewPos.y = furniture[CurrentSelection].yOffset;
                 FurnitureInstances[CurrentSelection].transform.position = PreviewPos;
+                FurnitureInstances[CurrentSelection].transform.rotation = Quaternion.Euler(PreviewRot);
                 if (Input.GetButtonDown("Fire1"))
                 {
                     tmp = Instantiate(furniture[CurrentSelection].PlaceModel);
                     tmp.transform.position = PreviewPos;
+                    tmp.transform.rotation = Quaternion.Euler(PreviewRot);
+                    tmp.transform.parent = WaypointParent;
+                    customerManager.getWaypoints();
                 }
             }
 

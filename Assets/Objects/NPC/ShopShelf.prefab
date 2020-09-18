@@ -857,6 +857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint
       objectReference: {fileID: 0}
+    - target: {fileID: 3490648008110730192, guid: 56d5f4855c42d6942b8503e7aac5bba9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3490648008110730197, guid: 56d5f4855c42d6942b8503e7aac5bba9,
         type: 3}
       propertyPath: m_Enabled

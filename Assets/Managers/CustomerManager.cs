@@ -18,18 +18,8 @@ public class CustomerManager : MonoBehaviour
 
     void Start()
     {
+        getWaypoints();
         Amount = Random.Range(CustomerSpawnMinMax.x, CustomerSpawnMinMax.y);
-
-        foreach (Transform child in WaypointsParent)
-        {
-            foreach (Transform child2 in child)
-            {
-                if (child2.CompareTag("Target"))
-                {
-                    Waypoints.Add(child2.gameObject);
-                }
-            }
-        }
     }
 
     public void Update()
@@ -48,14 +38,16 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void AskForDestination(GameObject Controler)
     {
-        GameObject target = Waypoints[Random.Range(0, Waypoints.Count)];
-        if (!target.GetComponent<WaypointAttributes>().isOccupied == true || true)
+        if (Waypoints.Count > 0)
         {
-            target.GetComponent<WaypointAttributes>().isOccupied = true;
-            Controler.GetComponent<CustomerControler>().TargetChange(target);
+            GameObject target = Waypoints[Random.Range(0, Waypoints.Count)];
+            if (!target.GetComponent<WaypointAttributes>().isOccupied == true || true)
+            {
+                target.GetComponent<WaypointAttributes>().isOccupied = true;
+                Controler.GetComponent<CustomerControler>().TargetChange(target);
+            }
         }
     }
     public void Destroy(GameObject customer)
@@ -70,6 +62,21 @@ public class CustomerManager : MonoBehaviour
         for (i = 0; i <= Customercount; i++)
         {
             Customers.Add(Instantiate(Customer, transform));
+        }
+    }
+
+    public void getWaypoints()
+    {
+        Waypoints.Clear();
+        foreach (Transform child in WaypointsParent)
+        {
+            foreach (Transform child2 in child)
+            {
+                if (child2.CompareTag("Target"))
+                {
+                    Waypoints.Add(child2.gameObject);
+                }
+            }
         }
     }
 }

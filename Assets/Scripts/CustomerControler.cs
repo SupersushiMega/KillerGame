@@ -27,7 +27,6 @@ public class CustomerControler : MonoBehaviour
         panic = 0;
         Manager = transform.parent.GetComponent<CustomerManager>();
         agent = GetComponent<NavMeshAgent>();
-        Manager.AskForDestination(gameObject);
     }
 
     // Update is called once per frame
@@ -35,6 +34,11 @@ public class CustomerControler : MonoBehaviour
     {
         if (Health.Health > 0)
         {
+            if (!agent.hasPath)
+            {
+                Manager.AskForDestination(gameObject);
+            }
+
             if (panic > 0)
             {
                 panic -= 10 * Time.deltaTime;
